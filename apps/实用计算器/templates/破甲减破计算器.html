@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>破甲减破计算器</title>
+
+	<meta name="description" content="Source code generated using layoutit.com">
+	<meta name="author" content="LayoutIt!">
+
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12">
+				<h3>
+					破甲减破计算器
+				</h3>
+
+				{% from "_formhelpers.html" import render_field %}
+				<form method="post" role="form">
+					{{ form.csrf_token }}
+
+					<div class="form-check">
+						{{ form.总物防.label }}
+						{{ render_field(form.总物防, class="form-control") }}
+					</div>
+					<div class="form-check">
+						{{ form.总法防.label }}
+						{{ render_field(form.总法防, class="form-control") }}
+					</div>
+					<div class="form-check">
+						{{ form.元神物防.label }}
+						{{ render_field(form.元神物防, class="form-control") }}
+					</div>
+					<div class="form-check">
+						{{ form.元神法防.label }}
+						{{ render_field(form.元神法防, class="form-control") }}
+					</div>
+					<div class="form-check">
+						{{ form.八阵图物防.label }}
+						{{ render_field(form.八阵图物防, class="form-control") }}
+					</div>
+					<div class="form-check">
+						{{ form.八阵图法防.label }}
+						{{ render_field(form.八阵图法防, class="form-control") }}
+					</div>
+
+					<label>破甲效果</label>
+					<div class="form-check form-check-inline">
+						{{ render_field(form.元神破甲, class="form-check-input") }}
+						{{ form.元神破甲.label(class="form-check-label") }}
+					</div>
+					<div class="form-check form-check-inline">
+						{{ render_field(form.雪莲怒凋, class="form-check-input") }}
+						{{ form.雪莲怒凋.label(class="form-check-label") }}
+					</div>
+					<div class="form-check form-check-inline">
+						{{ render_field(form.当阳怒吼, class="form-check-input") }}
+						{{ form.当阳怒吼.label(class="form-check-label") }}
+					</div>
+					<div class="form-check form-check-inline">
+						{{ render_field(form.断魂, class="form-check-input") }}
+						{{ form.断魂.label(class="form-check-label") }}
+						{{ render_field(form.断魂等级, class="form-select") }}
+					</div>
+					<div class="form-check form-check-inline">
+						{{ render_field(form.虎虎生威, class="form-check-input") }}
+						{{ form.虎虎生威.label(class="form-check-label") }}
+					</div>
+					<div class="form-check form-check-inline">
+						{{ render_field(form.铜台锁梦, class="form-check-input") }}
+						{{ render_field(form.铜台锁梦阶层, class="form-select") }}
+					</div>
+					<div class="form-check form-check-inline">
+						{{ render_field(form.八阵图青龙破甲, class="form-check-input") }}
+						{{ form.八阵图青龙破甲.label(class="form-check-label") }}
+						{{ render_field(form.八阵图青龙破甲阶层, class="form-select") }}
+					</div>
+					<div class="form-check form-check-inline">
+						{{ render_field(form.天狼爪, class="form-check-input") }}
+						{{ form.天狼爪.label(class="form-check-label") }}
+						{{ render_field(form.天狼爪等级, class="form-select") }}
+						{{ render_field(form.天狼爪连球数, class="form-select") }}
+					</div>
+
+					<label>普通减破效果</label>
+					<div class="form-check form-check-inline">
+						{{ render_field(form.奥义护体之神, class="form-check-input") }}
+						{{ form.奥义护体之神.label(class="form-check-label") }}
+						{{ render_field(form.奥义护体之神减破百分比, class="form-control") }}%
+					</div>
+					<div class="form-check form-check-inline">
+						{{ render_field(form.子女藤甲, class="form-check-input") }}
+						{{ form.子女藤甲.label(class="form-check-label") }}
+						{{ render_field(form.子女藤甲减破百分比, class="form-control") }}%
+					</div>
+					<div class="form-check form-check-inline">
+						{{ render_field(form.坚韧之灵, class="form-check-input") }}
+						{{ form.坚韧之灵.label(class="form-check-label") }}
+						{{ render_field(form.坚韧之灵减破百分比, class="form-control") }}%
+					</div>
+
+					<div class="form-group">
+						{{ form.韧性.label }}
+						{{ render_field(form.韧性, class="form-control") }}
+					</div>
+
+					<div class="form-group">
+						{{ form.夫妻等级.label }}
+						{{ render_field(form.夫妻等级, class="form-control") }}
+					</div>
+
+					<button class="btn btn-primary" type="submit">
+						计算
+					</button>
+				</form>
+
+				{% for key, value in result.items() %}
+				<p>{{ key }}：{{ value|round|int }}</p>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/scripts.js"></script>
+</body>
+
+</html>
