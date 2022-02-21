@@ -1,6 +1,18 @@
 from flask_wtf import FlaskForm
-from wtforms import IntegerField, DecimalField, BooleanField, SelectField
+from wtforms import IntegerField, DecimalField, BooleanField, RadioField, SelectField
 from wtforms.validators import InputRequired, NumberRange
+
+
+class 元神属性计算器表单(FlaskForm):
+    已知初始条件 = RadioField('已知初始条件', choices=[('已知初始点数', '已知初始点数'), ('已知当前黄字点数', '已知当前黄字点数')], default='已知初始点数')
+    初始点数 = DecimalField('初始点数', validators=[NumberRange(min=0)], default=45)
+    当前黄字点数 = DecimalField('当前黄字点数', validators=[NumberRange(min=0)], default=45)
+    当前等级 = IntegerField('当前等级', validators=[NumberRange(min=1)], default=1)
+    当前成长 = DecimalField('当前成长', validators=[NumberRange(min=0, max=5.5)], default=3)
+
+    成长 = DecimalField('成长', validators=[InputRequired(), NumberRange(min=0, max=5.5)], default=3)
+    等级 = IntegerField('等级', validators=[InputRequired(), NumberRange(min=1)], default=1)
+    融合点数 = DecimalField('融合点数', validators=[InputRequired(), NumberRange(min=0)], default=0)
 
 
 class 破甲减破计算器表单(FlaskForm):

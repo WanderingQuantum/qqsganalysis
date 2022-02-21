@@ -1,5 +1,6 @@
 from 破甲计算 import 计算防御值
-from forms import 破甲减破计算器表单
+from 元神属性计算 import 计算元神属性
+from forms import 元神属性计算器表单, 破甲减破计算器表单
 from flask import Flask, render_template, request
 from flask_wtf.csrf import CSRFProtect
 import os
@@ -7,6 +8,15 @@ import os
 app = Flask(__name__)
 app.secret_key = os.urandom(32)
 csrf = CSRFProtect(app)
+
+
+@app.route("/元神属性计算器", methods=['GET', 'POST'])
+def 元神属性计算器():
+    form = 元神属性计算器表单()
+    if form.validate_on_submit():
+        result = 计算元神属性(request.form)
+        return render_template('元神属性计算器.html', form=form, result=result)
+    return render_template('元神属性计算器.html', form=form, result={})
 
 
 @app.route("/破甲减破计算器", methods=['GET', 'POST'])

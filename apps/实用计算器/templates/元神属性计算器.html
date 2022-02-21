@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>元神属性计算器</title>
+
+	<meta name="description" content="Source code generated using layoutit.com">
+	<meta name="author" content="LayoutIt!">
+
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12">
+				<h3>
+					元神属性计算器
+				</h3>
+
+				{% from "_formhelpers.html" import render_field %}
+				<form method="post" role="form">
+					{{ form.csrf_token }}
+
+					<div class="form-check">
+						{{ form.已知初始条件.label }}
+						{{ render_field(form.已知初始条件, class="form-check-input") }}
+					</div>
+					<div class="form-check">
+						{{ form.初始点数.label }}
+						{{ render_field(form.初始点数, class="form-control") }}
+					</div>
+					<div class="form-check">
+						{{ form.当前黄字点数.label }}
+						{{ render_field(form.当前黄字点数, class="form-control") }}
+					</div>
+					<div class="form-check">
+						{{ form.当前等级.label }}
+						{{ render_field(form.当前等级, class="form-control") }}
+					</div>
+					<div class="form-check">
+						{{ form.当前成长.label }}
+						{{ render_field(form.当前成长, class="form-control") }}
+					</div>
+
+					<br>
+					<label>计算目标</label>
+					<div class="form-check">
+						{{ form.成长.label }}
+						{{ render_field(form.成长, class="form-control") }}
+					</div>
+					<div class="form-check">
+						{{ form.等级.label }}
+						{{ render_field(form.等级, class="form-control") }}
+					</div>
+					<div class="form-check">
+						{{ form.融合点数.label }}
+						{{ render_field(form.融合点数, class="form-control") }}
+					</div>
+
+					<button class="btn btn-primary" type="submit">
+						计算
+					</button>
+				</form>
+
+				{% if result %}
+				<p>
+					计算结果：
+					<font color="#F39C12">{{ result['黄字点数']|round(2, 'floor') }}</font>
+					+<font color="#00FF00">{{ result['绿字点数']|round(2, 'floor') }}</font>
+					&nbsp;&nbsp;&nbsp;{{ result['百分比'] }}%
+				</p>
+				<p>作为材料融合后增加点数：</p>
+				{% for i in range(10) %}
+				<p> {{ i + 1 }}段融合：{{ result['融合后增加点数'][i]|round(2, 'floor') }}</p>
+				{% endfor %}
+				<p> 总融合：{{ result['融合后增加点数']|sum|round(2, 'floor') }}</p>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/scripts.js"></script>
+</body>
+
+</html>
