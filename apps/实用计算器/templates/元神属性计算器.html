@@ -11,14 +11,14 @@
 	<meta name="description" content="Source code generated using layoutit.com">
 	<meta name="author" content="LayoutIt!">
 
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-	<link href="css/style.css" rel="stylesheet">
+	<link href="static/css/bootstrap.min.css" rel="stylesheet">
+	<link href="static/css/style.css" rel="stylesheet">
 </head>
 
 <body>
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-md-12">
+			<div class="col-md">
 				<h3>
 					元神属性计算器
 				</h3>
@@ -27,41 +27,151 @@
 				<form method="post" role="form">
 					{{ form.csrf_token }}
 
-					<div class="form-check">
-						{{ form.已知初始条件.label }}
-						{{ render_field(form.已知初始条件, class="form-check-input") }}
+					<label>当前属性</label>
+					<div class="row flex-nowrap">
+						{{ form.当前物理攻击黄字点数.label(class="col-sm-auto col-form-label col-form-label-sm mx-2") }}
+						<div class="col-sm-auto">
+							{{ render_field(form.当前物理攻击黄字点数, class="form-control form-control-sm") }}
+						</div>
+						{{ form.当前物理攻击成长.label(class="col-sm-auto col-form-label col-form-label-sm mx-2") }}
+						<div class="col-sm-auto">
+							{{ render_field(form.当前物理攻击成长, class="form-control form-control-sm") }}
+						</div>
 					</div>
-					<div class="form-check">
-						{{ form.初始点数.label }}
-						{{ render_field(form.初始点数, class="form-control") }}
+					<div class="row flex-nowrap">
+						{{ form.当前法术攻击黄字点数.label(class="col-sm-auto col-form-label col-form-label-sm mx-2") }}
+						<div class="col-sm-auto">
+							{{ render_field(form.当前法术攻击黄字点数, class="form-control form-control-sm") }}
+						</div>
+						{{ form.当前法术攻击成长.label(class="col-sm-auto col-form-label col-form-label-sm mx-2") }}
+						<div class="col-sm-auto">
+							{{ render_field(form.当前法术攻击成长, class="form-control form-control-sm") }}
+						</div>
 					</div>
-					<div class="form-check">
-						{{ form.当前黄字点数.label }}
-						{{ render_field(form.当前黄字点数, class="form-control") }}
+					<div class="row flex-nowrap">
+						{{ form.当前物理防御黄字点数.label(class="col-sm-auto col-form-label col-form-label-sm mx-2") }}
+						<div class="col-sm-auto">
+							{{ render_field(form.当前物理防御黄字点数, class="form-control form-control-sm") }}
+						</div>
+						{{ form.当前物理防御成长.label(class="col-sm-auto col-form-label col-form-label-sm mx-2") }}
+						<div class="col-sm-auto">
+							{{ render_field(form.当前物理防御成长, class="form-control form-control-sm") }}
+						</div>
 					</div>
-					<div class="form-check">
-						{{ form.当前等级.label }}
-						{{ render_field(form.当前等级, class="form-control") }}
+					<div class="row flex-nowrap">
+						{{ form.当前法术防御黄字点数.label(class="col-sm-auto col-form-label col-form-label-sm mx-2") }}
+						<div class="col-sm-auto">
+							{{ render_field(form.当前法术防御黄字点数, class="form-control form-control-sm") }}
+						</div>
+						{{ form.当前法术防御成长.label(class="col-sm-auto col-form-label col-form-label-sm mx-2") }}
+						<div class="col-sm-auto">
+							{{ render_field(form.当前法术防御成长, class="form-control form-control-sm") }}
+						</div>
 					</div>
-					<div class="form-check">
-						{{ form.当前成长.label }}
-						{{ render_field(form.当前成长, class="form-control") }}
+					<div class="row flex-nowrap">
+						{{ form.当前攻击配合黄字点数.label(class="col-sm-auto col-form-label col-form-label-sm mx-2") }}
+						<div class="col-sm-auto">
+							{{ render_field(form.当前攻击配合黄字点数, class="form-control form-control-sm") }}
+						</div>
+						{{ form.当前攻击配合成长.label(class="col-sm-auto col-form-label col-form-label-sm mx-2") }}
+						<div class="col-sm-auto">
+							{{ render_field(form.当前攻击配合成长, class="form-control form-control-sm") }}
+						</div>
+					</div>
+					<div class="row flex-nowrap">
+						{{ form.当前防御配合黄字点数.label(class="col-sm-auto col-form-label col-form-label-sm mx-2") }}
+						<div class="col-sm-auto">
+							{{ render_field(form.当前防御配合黄字点数, class="form-control form-control-sm") }}
+						</div>
+						{{ form.当前防御配合成长.label(class="col-sm-auto col-form-label col-form-label-sm mx-2") }}
+						<div class="col-sm-auto">
+							{{ render_field(form.当前防御配合成长, class="form-control form-control-sm") }}
+						</div>
+					</div>
+					<div class="row flex-nowrap">
+						{{ form.当前等级.label(class="col-sm-auto col-form-label col-form-label-sm mx-2") }}
+						<div class="col-sm-auto">
+							{{ render_field(form.当前等级, class="form-control form-control-sm") }}
+						</div>
 					</div>
 
 					<br>
-					<label>计算目标</label>
-					<div class="form-check">
-						{{ form.成长.label }}
-						{{ render_field(form.成长, class="form-control") }}
+					<label>目标属性</label>
+					<div class="row flex-nowrap">
+						{{ form.等级.label(class="col-sm-auto col-form-label col-form-label-sm mx-2") }}
+						<div class="col-sm-auto">
+							{{ render_field(form.等级, class="form-control form-control-sm") }}
+						</div>
 					</div>
-					<div class="form-check">
-						{{ form.等级.label }}
-						{{ render_field(form.等级, class="form-control") }}
+					<div class="row flex-nowrap">
+						{{ form.物理攻击手动分配点数.label(class="col-sm-auto col-form-label col-form-label-sm mx-2") }}
+						<div class="col-sm-auto">
+							{{ render_field(form.物理攻击手动分配点数, class="form-control form-control-sm") }}
+						</div>
+						{{ form.物理攻击融合点数.label(class="col-sm-auto col-form-label col-form-label-sm mx-2") }}
+						<div class="col-sm-auto">
+							{{ render_field(form.物理攻击融合点数, class="form-control form-control-sm") }}
+						</div>
+						{{ form.物理攻击成长.label(class="col-sm-auto col-form-label col-form-label-sm mx-2") }}
+						<div class="col-sm-auto">
+							{{ render_field(form.物理攻击成长, class="form-control form-control-sm") }}
+						</div>
 					</div>
-					<div class="form-check">
-						{{ form.融合点数.label }}
-						{{ render_field(form.融合点数, class="form-control") }}
+					<div class="row flex-nowrap">
+						{{ form.法术攻击手动分配点数.label(class="col-sm-auto col-form-label col-form-label-sm mx-2") }}
+						<div class="col-sm-auto">
+							{{ render_field(form.法术攻击手动分配点数, class="form-control form-control-sm") }}
+						</div>
+						{{ form.法术攻击融合点数.label(class="col-sm-auto col-form-label col-form-label-sm mx-2") }}
+						<div class="col-sm-auto">
+							{{ render_field(form.法术攻击融合点数, class="form-control form-control-sm") }}
+						</div>
+						{{ form.法术攻击成长.label(class="col-sm-auto col-form-label col-form-label-sm mx-2") }}
+						<div class="col-sm-auto">
+							{{ render_field(form.法术攻击成长, class="form-control form-control-sm") }}
+						</div>
 					</div>
+					<div class="row flex-nowrap">
+						{{ form.物理防御手动分配点数.label(class="col-sm-auto col-form-label col-form-label-sm mx-2") }}
+						<div class="col-sm-auto">
+							{{ render_field(form.物理防御手动分配点数, class="form-control form-control-sm") }}
+						</div>
+						{{ form.物理防御融合点数.label(class="col-sm-auto col-form-label col-form-label-sm mx-2") }}
+						<div class="col-sm-auto">
+							{{ render_field(form.物理防御融合点数, class="form-control form-control-sm") }}
+						</div>
+						{{ form.物理防御成长.label(class="col-sm-auto col-form-label col-form-label-sm mx-2") }}
+						<div class="col-sm-auto">
+							{{ render_field(form.物理防御成长, class="form-control form-control-sm") }}
+						</div>
+					</div>
+					<div class="row flex-nowrap">
+						{{ form.法术防御手动分配点数.label(class="col-sm-auto col-form-label col-form-label-sm mx-2") }}
+						<div class="col-sm-auto">
+							{{ render_field(form.法术防御手动分配点数, class="form-control form-control-sm") }}
+						</div>
+						{{ form.法术防御融合点数.label(class="col-sm-auto col-form-label col-form-label-sm mx-2") }}
+						<div class="col-sm-auto">
+							{{ render_field(form.法术防御融合点数, class="form-control form-control-sm") }}
+						</div>
+						{{ form.法术防御成长.label(class="col-sm-auto col-form-label col-form-label-sm mx-2") }}
+						<div class="col-sm-auto">
+							{{ render_field(form.法术防御成长, class="form-control form-control-sm") }}
+						</div>
+					</div>
+					<div class="row flex-nowrap">
+						{{ form.攻击配合手动分配点数.label(class="col-sm-auto col-form-label col-form-label-sm mx-2") }}
+						<div class="col-sm-auto">
+							{{ render_field(form.攻击配合手动分配点数, class="form-control form-control-sm") }}
+						</div>
+					</div>
+					<div class="row flex-nowrap">
+						{{ form.防御配合手动分配点数.label(class="col-sm-auto col-form-label col-form-label-sm mx-2") }}
+						<div class="col-sm-auto">
+							{{ render_field(form.防御配合手动分配点数, class="form-control form-control-sm") }}
+						</div>
+					</div>
+					<p id="剩余可分配属性点"></p>
 
 					<button class="btn btn-primary" type="submit">
 						计算
@@ -69,25 +179,94 @@
 				</form>
 
 				{% if result %}
+				<p>计算结果：</p>
 				<p>
-					计算结果：
-					<font color="#F39C12">{{ result['黄字点数']|round(2, 'floor') }}</font>
-					+<font color="#00FF00">{{ result['绿字点数']|round(2, 'floor') }}</font>
-					&nbsp;&nbsp;&nbsp;{{ result['百分比'] }}%
+					物理攻击：<font color="#F39C12">{{ result['物理攻击黄字点数']|round(2, 'floor') }}</font>
+					+<font color="#00FF00">{{ result['物理攻击绿字点数']|round(2, 'floor') }}</font>
+					&nbsp;&nbsp;&nbsp;{{ result['物理攻击百分比'] }}%
 				</p>
-				<p>作为材料融合后增加点数：</p>
-				{% for i in range(10) %}
-				<p> {{ i + 1 }}段融合：{{ result['融合后增加点数'][i]|round(2, 'floor') }}</p>
-				{% endfor %}
-				<p> 总融合：{{ result['融合后增加点数']|sum|round(2, 'floor') }}</p>
+				<p>
+					法术攻击：<font color="#F39C12">{{ result['法术攻击黄字点数']|round(2, 'floor') }}</font>
+					+<font color="#00FF00">{{ result['法术攻击绿字点数']|round(2, 'floor') }}</font>
+					&nbsp;&nbsp;&nbsp;{{ result['法术攻击百分比'] }}%
+				</p>
+				<p>
+					物理防御：<font color="#F39C12">{{ result['物理防御黄字点数']|round(2, 'floor') }}</font>
+					+<font color="#00FF00">{{ result['物理防御绿字点数']|round(2, 'floor') }}</font>
+					&nbsp;&nbsp;&nbsp;{{ result['物理防御百分比'] }}%
+				</p>
+				<p>
+					法术防御：<font color="#F39C12">{{ result['法术防御黄字点数']|round(2, 'floor') }}</font>
+					+<font color="#00FF00">{{ result['法术防御绿字点数']|round(2, 'floor') }}</font>
+					&nbsp;&nbsp;&nbsp;{{ result['法术防御百分比'] }}%
+				</p>
+				<p>
+					攻击配合：<font color="#F39C12">{{ result['攻击配合黄字点数']|round(2, 'floor') }}</font>
+					+<font color="#00FF00">{{ result['攻击配合绿字点数']|round(2, 'floor') }}</font>
+					&nbsp;&nbsp;&nbsp;{{ result['攻击配合百分比'] }}%
+				</p>
+				<p>
+					防御配合：<font color="#F39C12">{{ result['防御配合黄字点数']|round(2, 'floor') }}</font>
+					+<font color="#00FF00">{{ result['防御配合绿字点数']|round(2, 'floor') }}</font>
+					&nbsp;&nbsp;&nbsp;{{ result['防御配合百分比'] }}%
+				</p>
+				<p>作为物理攻击材料融合后增加点数：
+					{% for i in range(10) %}
+					{{ result['物理攻击融合后增加点数'][i]|round(2, 'floor') }},
+					{% endfor %}
+					总融合：{{ result['物理攻击融合后增加点数']|sum|round(2, 'floor') }}
+				</p>
+				<p>作为法术攻击材料融合后增加点数：
+					{% for i in range(10) %}
+					{{ result['法术攻击融合后增加点数'][i]|round(2, 'floor') }},
+					{% endfor %}
+					总融合：{{ result['法术攻击融合后增加点数']|sum|round(2, 'floor') }}
+				</p>
+				<p>作为物理防御材料融合后增加点数：
+					{% for i in range(10) %}
+					{{ result['物理防御融合后增加点数'][i]|round(2, 'floor') }},
+					{% endfor %}
+					总融合：{{ result['物理防御融合后增加点数']|sum|round(2, 'floor') }}
+				</p>
+				<p>作为法术防御材料融合后增加点数：
+					{% for i in range(10) %}
+					{{ result['法术防御融合后增加点数'][i]|round(2, 'floor') }},
+					{% endfor %}
+					总融合：{{ result['法术防御融合后增加点数']|sum|round(2, 'floor') }}
+				</p>
 				{% endif %}
 			</div>
 		</div>
 	</div>
 
-	<script src="js/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/scripts.js"></script>
+	<script src="static/js/jquery.min.js"></script>
+	<script src="static/js/bootstrap.min.js"></script>
+	<script src="static/js/scripts.js"></script>
+	<script>
+		function 更新可分配属性点() {
+			物理攻击手动分配点数 = document.getElementById("物理攻击手动分配点数");
+			法术攻击手动分配点数 = document.getElementById("法术攻击手动分配点数");
+			物理防御手动分配点数 = document.getElementById("物理防御手动分配点数");
+			法术防御手动分配点数 = document.getElementById("法术防御手动分配点数");
+			攻击配合手动分配点数 = document.getElementById("攻击配合手动分配点数");
+			防御配合手动分配点数 = document.getElementById("防御配合手动分配点数");
+			剩余可分配属性点 = document.getElementById("剩余可分配属性点");
+			result = (document.getElementById("等级").value - 1) * 5 - 物理攻击手动分配点数.value - 法术攻击手动分配点数.value - 物理防御手动分配点数.value - 法术防御手动分配点数.value - 攻击配合手动分配点数.value - 防御配合手动分配点数.value;
+			if (result < 0 & this.id != "等级") {
+				this.value = parseInt(this.value) + result;
+				result = 0;
+			}
+			剩余可分配属性点.innerHTML = "剩余可分配属性点：" + result;
+		}
+		window.addEventListener("load", 更新可分配属性点);
+		document.getElementById("等级").addEventListener("change", 更新可分配属性点);
+		document.getElementById("物理攻击手动分配点数").addEventListener("change", 更新可分配属性点);
+		document.getElementById("法术攻击手动分配点数").addEventListener("change", 更新可分配属性点);
+		document.getElementById("物理防御手动分配点数").addEventListener("change", 更新可分配属性点);
+		document.getElementById("法术防御手动分配点数").addEventListener("change", 更新可分配属性点);
+		document.getElementById("法术攻击手动分配点数").addEventListener("change", 更新可分配属性点);
+		document.getElementById("法术攻击手动分配点数").addEventListener("change", 更新可分配属性点);
+	</script>
 </body>
 
 </html>

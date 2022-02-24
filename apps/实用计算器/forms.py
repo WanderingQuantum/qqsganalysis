@@ -4,15 +4,35 @@ from wtforms.validators import InputRequired, NumberRange
 
 
 class 元神属性计算器表单(FlaskForm):
-    已知初始条件 = RadioField('已知初始条件', choices=[('已知初始点数', '已知初始点数'), ('已知当前黄字点数', '已知当前黄字点数')], default='已知初始点数')
-    初始点数 = DecimalField('初始点数', validators=[NumberRange(min=0)], default=45)
-    当前黄字点数 = DecimalField('当前黄字点数', validators=[NumberRange(min=0)], default=45)
-    当前等级 = IntegerField('当前等级', validators=[NumberRange(min=1)], default=1)
-    当前成长 = DecimalField('当前成长', validators=[NumberRange(min=0, max=5.5)], default=3)
+    当前物理攻击黄字点数 = DecimalField('当前物理攻击黄字点数', validators=[InputRequired(), NumberRange(min=0)], default=45)
+    当前物理攻击成长 = DecimalField('当前物理攻击成长', validators=[InputRequired(), NumberRange(min=0, max=5.5)], default=3)
+    当前法术攻击黄字点数 = DecimalField('当前法术攻击黄字点数', validators=[InputRequired(), NumberRange(min=0)], default=45)
+    当前法术攻击成长 = DecimalField('当前法术攻击成长', validators=[InputRequired(), NumberRange(min=0, max=5.5)], default=3)
+    当前物理防御黄字点数 = DecimalField('当前物理防御黄字点数', validators=[InputRequired(), NumberRange(min=0)], default=45)
+    当前物理防御成长 = DecimalField('当前物理防御成长', validators=[InputRequired(), NumberRange(min=0, max=5.5)], default=3)
+    当前法术防御黄字点数 = DecimalField('当前法术防御黄字点数', validators=[InputRequired(), NumberRange(min=0)], default=45)
+    当前法术防御成长 = DecimalField('当前法术防御成长', validators=[InputRequired(), NumberRange(min=0, max=5.5)], default=3)
+    当前攻击配合黄字点数 = DecimalField('当前攻击配合黄字点数', validators=[InputRequired(), NumberRange(min=0)], default=480)
+    当前攻击配合成长 = DecimalField('当前攻击配合成长', validators=[InputRequired(), NumberRange(min=0, max=5.5)], default=3)
+    当前防御配合黄字点数 = DecimalField('当前防御配合黄字点数', validators=[InputRequired(), NumberRange(min=0)], default=400)
+    当前防御配合成长 = DecimalField('当前防御配合成长', validators=[InputRequired(), NumberRange(min=0, max=5.5)], default=3)
+    当前等级 = IntegerField('当前等级', validators=[InputRequired(), NumberRange(min=1)], default=1)
 
-    成长 = DecimalField('成长', validators=[InputRequired(), NumberRange(min=0, max=5.5)], default=3)
     等级 = IntegerField('等级', validators=[InputRequired(), NumberRange(min=1)], default=1)
-    融合点数 = DecimalField('融合点数', validators=[InputRequired(), NumberRange(min=0)], default=0)
+    物理攻击手动分配点数 = DecimalField('物理攻击手动分配点数', validators=[InputRequired(), NumberRange(min=0)], default=0)
+    法术攻击手动分配点数 = DecimalField('法术攻击手动分配点数', validators=[InputRequired(), NumberRange(min=0)], default=0)
+    物理防御手动分配点数 = DecimalField('物理防御手动分配点数', validators=[InputRequired(), NumberRange(min=0)], default=0)
+    法术防御手动分配点数 = DecimalField('法术防御手动分配点数', validators=[InputRequired(), NumberRange(min=0)], default=0)
+    攻击配合手动分配点数 = DecimalField('攻击配合手动分配点数', validators=[InputRequired(), NumberRange(min=0)], default=0)
+    防御配合手动分配点数 = DecimalField('防御配合手动分配点数', validators=[InputRequired(), NumberRange(min=0)], default=0)
+    物理攻击融合点数 = DecimalField('物理攻击融合点数', validators=[InputRequired(), NumberRange(min=0)], default=0)
+    法术攻击融合点数 = DecimalField('法术攻击融合点数', validators=[InputRequired(), NumberRange(min=0)], default=0)
+    物理防御融合点数 = DecimalField('物理防御融合点数', validators=[InputRequired(), NumberRange(min=0)], default=0)
+    法术防御融合点数 = DecimalField('法术防御融合点数', validators=[InputRequired(), NumberRange(min=0)], default=0)
+    物理攻击成长 = DecimalField('物理攻击成长', validators=[InputRequired(), NumberRange(min=0, max=5.5)], default=3)
+    法术攻击成长 = DecimalField('法术攻击成长', validators=[InputRequired(), NumberRange(min=0, max=5.5)], default=3)
+    物理防御成长 = DecimalField('物理防御成长', validators=[InputRequired(), NumberRange(min=0, max=5.5)], default=3)
+    法术防御成长 = DecimalField('法术防御成长', validators=[InputRequired(), NumberRange(min=0, max=5.5)], default=3)
 
 
 class 破甲减破计算器表单(FlaskForm):
