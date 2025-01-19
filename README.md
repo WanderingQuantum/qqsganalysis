@@ -4,4 +4,4 @@
 
 小提示：手机端浏览本网站时，点击左下角按钮可唤出侧边栏菜单。
 
-网站地址：[这里](https://www.qqsganalysis.cn/)
+本网站地址：<https://wanderingquantum.github.io/qqsganalysis/>
