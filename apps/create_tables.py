@@ -18,7 +18,7 @@ def 导入解包数据():
 
 
 def 导入测试数据():
-    from 元神属性点数与属性百分比对应表 import 元神属性点数与属性百分比对应表
+    from tables.元神属性点数与属性百分比对应表 import 元神属性点数与属性百分比对应表
     data = pd.DataFrame({'属性点数': list(range(3501)), '属性百分比': 元神属性点数与属性百分比对应表})
     data.to_sql('元神属性点数与属性百分比对应表', engine, if_exists='replace')
 
